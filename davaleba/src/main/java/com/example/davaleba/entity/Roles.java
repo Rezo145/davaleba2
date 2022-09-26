@@ -1,9 +1,7 @@
 package com.example.davaleba.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(schema = "core",name="Roles")
@@ -13,6 +11,10 @@ public class Roles {
 
     @Column(name="mame")
     private String name;
+
+    @ManyToMany
+    @Column(name="users")
+    private List<Users> users;
 
     public String getName() {
         return name;

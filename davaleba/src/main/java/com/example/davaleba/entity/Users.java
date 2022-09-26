@@ -20,17 +20,29 @@ public class Users {
     @Column(name="email")
     private String email;
 
-    @OneToOne
+    @ManyToMany
     @Column(name="role")
-    private Roles role;
+    private List<Roles> roles;
 
-    @OneToMany
+    @ManyToMany
     @Column(name="rights")
     private List<Rights> rights;
 
     @OneToOne
     @Column(name="persona")
     private Personas persona;
+
+    public List<Menus> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(List<Menus> menus) {
+        this.menus = menus;
+    }
+
+    @ManyToMany
+    @Column(name="menus")
+    private List<Menus> menus;
 
     public String getName() {
         return name;
@@ -56,12 +68,12 @@ public class Users {
         this.email = email;
     }
 
-    public Roles getRole() {
-        return role;
+    public List<Roles> getRoles() {
+        return roles;
     }
 
-    public void setRole(Roles role) {
-        this.role = role;
+    public void setRoles(List<Roles> roles) {
+        this.roles = this.roles;
     }
 
     public List<Rights> getRights() {
